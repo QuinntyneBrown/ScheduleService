@@ -228,6 +228,9 @@
     <Compile Include="Features\Notifications\NotificationService.cs" />
     <Compile Include="Features\Notifications\SendRegistrationConfirmationCommand.cs" />
     <Compile Include="Features\Notifications\NotificationsConfiguration.cs" />
+    <Compile Include="Features\RESTServices\EasternStandardTimeServiceClient.cs" />
+    <Compile Include="Features\RESTServices\IRESTServiceClient.cs" />
+    <Compile Include="Features\RESTServices\RESTServiceClientProvider.cs" />
     <Compile Include="Features\Users\AddOrUpdateUserCommand.cs" />
     <Compile Include="Features\Users\Constants.cs" />
     <Compile Include="Features\Users\GetUserByIdQuery.cs" />

@@ -5,13 +5,18 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Linq;
 using System.Data.Entity;
+using System;
+using ScheduleService.Features.RESTServices;
 
 namespace ScheduleService.Features.ScheduledItems
 {
     public class GetScheduledItemsQuery
     {
         public class GetScheduledItemsRequest : IRequest<GetScheduledItemsResponse> { 
-            public int? TenantId { get; set; }        
+            public int? TenantId { get; set; }     
+            public DateTime Start { get; set; }  
+            public DateTime End { get; set; }
+            public string TimeZoneName { get; set; } 
         }
 
         public class GetScheduledItemsResponse
@@ -21,28 +26,25 @@ namespace ScheduleService.Features.ScheduledItems
 
         public class GetScheduledItemsHandler : IAsyncRequestHandler<GetScheduledItemsRequest, GetScheduledItemsResponse>
         {
-            public GetScheduledItemsHandler(ScheduleServiceContext context, ICache cache)
+            public GetScheduledItemsHandler(ICache cache, IRESTServiceClientProvider restServiceClientProvider)
             {
-                _context = context;
                 _cache = cache;
+                _restServiceClientProvider = restServiceClientProvider;
             }
 
             public async Task<GetScheduledItemsResponse> Handle(GetScheduledItemsRequest request)
             {
-                var scheduledItems = await _context.ScheduledItems
-                    .Where( x => x.TenantId == request.TenantId )
-                    .ToListAsync();
+                var restServiceClient = _restServiceClientProvider.Get(request.TimeZoneName);
+                var scheduledItems = await restServiceClient.Get(request.Start, request.End);
 
                 return new GetScheduledItemsResponse()
                 {
-                    ScheduledItems = scheduledItems.Select(x => ScheduledItemApiModel.FromScheduledItem(x)).ToList()
+                    ScheduledItems = scheduledItems
                 };
             }
 
-            private readonly ScheduleServiceContext _context;
+            private readonly IRESTServiceClientProvider _restServiceClientProvider;
             private readonly ICache _cache;
         }
-
     }
-
 }

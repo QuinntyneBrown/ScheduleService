@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScheduleService.Frontend.Ad
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScheduleService.Frontend", "src\ScheduleService.Frontend.Admin\ScheduleService.Frontend.csproj", "{D26C15E2-DDFB-4231-8585-A9066CCCB4C6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScheduleService.Geolocation", "src\ScheduleService.Geolocation\ScheduleService.Geolocation.csproj", "{5FF742E5-8D5B-4E2F-B825-31D88502D6BE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{D26C15E2-DDFB-4231-8585-A9066CCCB4C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D26C15E2-DDFB-4231-8585-A9066CCCB4C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D26C15E2-DDFB-4231-8585-A9066CCCB4C6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5FF742E5-8D5B-4E2F-B825-31D88502D6BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5FF742E5-8D5B-4E2F-B825-31D88502D6BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5FF742E5-8D5B-4E2F-B825-31D88502D6BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5FF742E5-8D5B-4E2F-B825-31D88502D6BE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -48,5 +54,6 @@ Global
 		{DC9F864C-FB9B-4984-9749-813E4A97A89E} = {9A7A1399-B20D-4CCB-A2B9-2E0BD069D43A}
 		{F6286226-21E2-4BEB-B76D-F9E2D650E02A} = {5304B8C5-0198-4BC6-B0F3-89713792CDE9}
 		{D26C15E2-DDFB-4231-8585-A9066CCCB4C6} = {5304B8C5-0198-4BC6-B0F3-89713792CDE9}
+		{5FF742E5-8D5B-4E2F-B825-31D88502D6BE} = {5304B8C5-0198-4BC6-B0F3-89713792CDE9}
 	EndGlobalSection
 EndGlobal
